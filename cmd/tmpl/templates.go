@@ -8,6 +8,8 @@ var Templates = map[string]string{
 {{$STIG := replace .Id "-" "_" -1 -}}
 {{$STIG}} () {
 
+STIG_ID={{.Id}}
+STIG_SEVERITY={{(index .Rules 0).SeverityAttr}}
 STIG_DESCRIPTION () {
   cat <<'STIG_END'
 Group Id: {{.Id}}
